@@ -1,0 +1,78 @@
+
+/* 自定义动画与样式补充 */
+
+/* 基础动画定义 */
+@keyframes blob {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+    }
+    30% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    60% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+        transform: translate(0px, 0px) scale(1);
+    }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* 入场动画 */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+
+/* 选中文字颜色 */
+::selection {
+    background-color: #4F46E5;
+    color: white;
+}
+
+/* 卡片悬停时的微妙光效 */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* 确保图片在加载时保持比例 */
+img {
+    image-rendering: -webkit-optimize-contrast;
+}

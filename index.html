@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的工作空间 | Personal Workspace</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入自定义 CSS -->
+    <link rel="stylesheet" href="css./style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-primary selection:text-white">
+
+    <!-- 背景装饰 -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- 头部区域：头像与简介 -->
+        <header class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-16 fade-in-up">
+            <!-- 头像区域 -->
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                <img src="https://picsum.photos/id/1005/200/200" alt="博主头像，一位正在工作的专业人士" class="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-lg transform transition duration-500 hover:scale-105">
+                <div class="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-4 border-white rounded-full" title="Online"></div>
+            </div>
+
+            <!-- 姓名与介绍 -->
+            <div class="text-center md:text-left flex-1">
+                <h1 class="text-4xl font-bold text-gray-900 mb-2 tracking-tight">Alex Chen</h1>
+                <p class="text-xl text-primary font-medium mb-4">全栈工程师 / 独立开发者</p>
+                <p class="text-gray-600 leading-relaxed max-w-2xl mb-6">
+                    欢迎来到我的数字花园。这里记录了我的技术探索、项目实践以及关于产品设计的思考。
+                    热衷于构建简洁、高效且美观的 Web 应用。目前专注于 React 生态与云原生架构。
+                </p>
+                
+                <!-- 联系方式 -->
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="mailto:alex@example.com" class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-primary hover:text-primary transition-all duration-300 group">
+                        <i class="fas fa-envelope text-gray-400 group-hover:text-primary"></i>
+                        <span class="text-sm font-medium">Email Me</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-gray-800 hover:text-gray-800 transition-all duration-300 group">
+                        <i class="fab fa-github text-gray-400 group-hover:text-gray-800"></i>
+                        <span class="text-sm font-medium">GitHub</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 group">
+                        <i class="fab fa-twitter text-gray-400 group-hover:text-blue-400"></i>
+                        <span class="text-sm font-medium">Twitter</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 group">
+                        <i class="fab fa-linkedin text-gray-400 group-hover:text-blue-600"></i>
+                        <span class="text-sm font-medium">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main>
+            <!-- 筛选标签 -->
+            <div class="flex items-center justify-between mb-8 fade-in-up" style="animation-delay: 0.1s;">
+                <h2 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                    <i class="fas fa-layer-group text-primary"></i>
+                    精选项目 & 文章
+                </h2>
+                <div class="flex gap-2">
+                    <button class="filter-btn active px-3 py-1 text-sm rounded-full bg-primary text-white transition-colors" data-filter="all">全部</button>
+                    <button class="filter-btn px-3 py-1 text-sm rounded-full bg-white text-gray-600 hover:bg-gray-100 transition-colors" data-filter="project">项目</button>
+                    <button class="filter-btn px-3 py-1 text-sm rounded-full bg-white text-gray-600 hover:bg-gray-100 transition-colors" data-filter="blog">博客</button>
+                </div>
+            </div>
+
+            <!-- 项目/文章列表 (Grid Layout) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="content-grid">
+                
+                <!-- 卡片 1: 项目 -->
+                <article class="card group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden fade-in-up" data-category="project" style="animation-delay: 0.2s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://picsum.photos/id/1/400/300" alt="SaaS仪表盘项目截图，展示数据可视化图表" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-primary shadow-sm">
+                            Project
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">React / Node.js</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">Analytics Dashboard Pro</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                            一个高性能的数据可视化仪表盘，支持实时数据流处理和多维度报表导出。
+                        </p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
+                            <div class="flex gap-3 text-gray-400">
+                                <i class="far fa-star hover:text-yellow-400 cursor-pointer transition-colors"></i>
+                                <i class="far fa-code-branch hover:text-primary cursor-pointer transition-colors"></i>
+                            </div>
+                            <a href="#" class="text-sm font-medium text-primary hover:underline flex items-center gap-1">
+                                查看详情 <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 2: 博客 -->
+                <article class="card group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden fade-in-up" data-category="blog" style="animation-delay: 0.3s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://picsum.photos/id/180/400/300" alt="笔记本电脑和咖啡，象征写作与编程环境" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-secondary shadow-sm">
+                            Blog
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Engineering</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-secondary transition-colors">构建可扩展的前端架构</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                            探讨在大型项目中如何组织代码结构，以及微前端架构的落地实践与踩坑经验。
+                        </p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
+                            <span class="text-xs text-gray-400">2023-10-15</span>
+                            <a href="#" class="text-sm font-medium text-secondary hover:underline flex items-center gap-1">
+                                阅读文章 <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 3: 项目 -->
+                <article class="card group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden fade-in-up" data-category="project" style="animation-delay: 0.4s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://picsum.photos/id/119/400/300" alt="移动设备界面设计，展示APP原型" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-primary shadow-sm">
+                            Project
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Flutter / Firebase</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">TaskMaster Mobile</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                            一款跨平台的任务管理应用，支持离线同步、团队协作及智能提醒功能。
+                        </p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
+                            <div class="flex gap-3 text-gray-400">
+                                <i class="far fa-star hover:text-yellow-400 cursor-pointer transition-colors"></i>
+                                <i class="far fa-code-branch hover:text-primary cursor-pointer transition-colors"></i>
+                            </div>
+                            <a href="#" class="text-sm font-medium text-primary hover:underline flex items-center gap-1">
+                                查看详情 <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- 卡片 4: 博客 -->
+                 <article class="card group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden fade-in-up" data-category="blog" style="animation-delay: 0.5s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://picsum.photos/id/60/400/300" alt="服务器机房内部，象征后端基础设施" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-secondary shadow-sm">
+                            Blog
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">DevOps</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-secondary transition-colors">Docker 容器化最佳实践</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                            如何编写高效的 Dockerfile，优化镜像体积，以及在 CI/CD 流水线中的集成策略。
+                        </p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
+                            <span class="text-xs text-gray-400">2023-09-22</span>
+                            <a href="#" class="text-sm font-medium text-secondary hover:underline flex items-center gap-1">
+                                阅读文章 <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            
+            <!-- 加载更多按钮 -->
+            <div class="mt-12 text-center fade-in-up" style="animation-delay: 0.6s;">
+                <button id="load-more" class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-600 font-medium hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 transition-all duration-300 shadow-sm">
+                    加载更多内容
+                </button>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="mt-20 border-t border-gray-200 pt-8 text-center text-gray-500 text-sm fade-in-up" style="animation-delay: 0.7s;">
+            <p>&copy; 2026 Alex Chen. All rights reserved.</p>
+            <p class="mt-2">Designed with <i class="fas fa-heart text-red-400 mx-1"></i> for GitHub Pages</p>
+        </footer>
+    </div>
+
+    <!-- 简单的交互脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 筛选功能
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 移除所有激活状态
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-white');
+                        b.classList.add('bg-white', 'text-gray-600');
+                    });
+                    // 激活当前按钮
+                    btn.classList.remove('bg-white', 'text-gray-600');
+                    btn.classList.add('bg-primary', 'text-white');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    cards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            // 重新触发动画
+                            card.classList.remove('fade-in-up');
+                            void card.offsetWidth; // trigger reflow
+                            card.classList.add('fade-in-up');
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // 模拟加载更多
+            const loadMoreBtn = document.getElementById('load-more');
+            loadMoreBtn.addEventListener('click', () => {
+                loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> 加载中...';
+                setTimeout(() => {
+                    loadMoreBtn.innerHTML = '没有更多内容了';
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
